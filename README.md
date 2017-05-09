@@ -162,6 +162,5 @@ b)普通管理员添加
 页面定制|Web页面|该界面是超级管理员对网站风格的维护。|tb_website
 留言板管理界面|Web页面|该界面是超级管理员对本网站留言的管理。|tb_leaveMsg
 
-———
 
 [详细见Doc文档](https://github.com/pttt/Personal_Blog/raw/master/document.doc)
