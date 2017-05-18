@@ -9,7 +9,7 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 			<value>com.mysql.jdbc.Driver</value>
 		</property>
 		<property name="url">
-			<value>jdbc:mysql://localhost/db_blog</value>
+			<value>jdbc:mysql://localhost/blog</value>
 		</property>
 		<property name="username">
 			<value>root</value>
@@ -34,11 +34,11 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 		</property>
 		<property name="mappingResources">
 			<list>
-				<value>com/sanqing/po/User.hbm.xml</value>
-				<value>com/sanqing/po/Article.hbm.xml</value>
-				<value>com/sanqing/po/BlogInfo.hbm.xml</value>
-				<value>com/sanqing/po/Critique.hbm.xml</value>
-				<value>com/sanqing/po/Dianjiliang.hbm.xml</value>
+				<value>com/pt/po/User.hbm.xml</value>
+				<value>com/pt/po/Article.hbm.xml</value>
+				<value>com/pt/po/BlogInfo.hbm.xml</value>
+				<value>com/pt/po/Critique.hbm.xml</value>
+				<value>com/pt/po/Dianjiliang.hbm.xml</value>
 			</list>
 		</property>
 	</bean>
@@ -51,70 +51,70 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 	</bean>
 	
 	<!-- 配置DAO组件 -->
-	<bean id="userDAO" class="com.sanqing.dao.UserDAOImpl">
+	<bean id="userDAO" class="com.pt.dao.UserDAOImpl">
 		<property name="hibernateTemplate">
 			<ref bean="hibernateTemplate"/>
 		</property>
 	</bean>
 	
 	<!-- 配置业务逻辑组件 -->
-	<bean id="userService" class="com.sanqing.service.UserServiceImpl">
+	<bean id="userService" class="com.pt.service.UserServiceImpl">
 		<property name="userDAO">
 			<ref bean="userDAO"/>
 		</property>
 	</bean>
 	
 	<!-- 配置RegisterAction -->
-	<bean id="registerAction" class="com.sanqing.action.Register" scope="prototype">
+	<bean id="registerAction" class="com.pt.action.Register" scope="prototype">
 		<property name="userService">
 			<ref bean="userService"/>
 		</property>
 	</bean>
 	
 	<!-- 配置LoginAction -->
-	<bean id="loginAction" class="com.sanqing.action.Login" scope="prototype">
+	<bean id="loginAction" class="com.pt.action.Login" scope="prototype">
 		<property name="userService">
 			<ref bean="userService"/>
 		</property>
 	</bean>
 	
 	<!-- 配置DAO组件 -->
-	<bean id="blogInfoDAO" class="com.sanqing.dao.BlogInfoDAOImpl">
+	<bean id="blogInfoDAO" class="com.pt.dao.BlogInfoDAOImpl">
 		<property name="hibernateTemplate">
 			<ref bean="hibernateTemplate"/>
 		</property>
 	</bean>
 	
 	<!-- 配置业务逻辑组件 -->
-	<bean id="blogInfoService" class="com.sanqing.service.BlogInfoServiceImpl">
+	<bean id="blogInfoService" class="com.pt.service.BlogInfoServiceImpl">
 		<property name="blogInfoDAO">
 			<ref bean="blogInfoDAO"/>
 		</property>
 	</bean>
 	
 	<!-- 配置EditBlogInfo Action -->
-	<bean id="editeBlogInfo" class="com.sanqing.action.EditBlogInfo" scope="prototype">
+	<bean id="editeBlogInfo" class="com.pt.action.EditBlogInfo" scope="prototype">
 		<property name="blogInfoService">
 			<ref bean="blogInfoService"/>
 		</property>
 	</bean>
 	
 	<!-- 配置GetBlogInfo Action -->
-	<bean id="GetBlogInfo" class="com.sanqing.action.GetBlogInfo" scope="prototype">
+	<bean id="GetBlogInfo" class="com.pt.action.GetBlogInfo" scope="prototype">
 		<property name="blogInfoService">
 			<ref bean="blogInfoService"/>
 		</property>
 	</bean>
 	
 	<!-- 配置ArticleDAO -->
-	<bean id="articleDAO" class="com.sanqing.dao.ArticleDAOImpl">
+	<bean id="articleDAO" class="com.pt.dao.ArticleDAOImpl">
 		<property name="hibernateTemplate">
 			<ref bean="hibernateTemplate"/>
 		</property>
 	</bean>
 	
 	<!-- 配置ArticleService -->
-	<bean id="articleService" class="com.sanqing.service.ArticleServiceImpl">
+	<bean id="articleService" class="com.pt.service.ArticleServiceImpl">
 		<property name="articleDAO">
 			<ref bean="articleDAO"/>
 		</property>
@@ -124,35 +124,35 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 	</bean>
 	
 	<!-- AddArticle Action -->
-	<bean id="addArticle" class="com.sanqing.action.AddArticle" scope="prototype">
+	<bean id="addArticle" class="com.pt.action.AddArticle" scope="prototype">
 		<property name="articleService">
 			<ref bean="articleService"/>
 		</property>
 	</bean>
 	
 	<!-- ShowUserAllArticle Action -->
-	<bean id="showUserAllArticle" class="com.sanqing.action.ShowUserAllArticle" scope="prototype">
+	<bean id="showUserAllArticle" class="com.pt.action.ShowUserAllArticle" scope="prototype">
 		<property name="articleService">
 			<ref bean="articleService"/>
 		</property>
 	</bean>
 	
 	<!-- ShowAllArticle Action -->
-	<bean id="showAllArticle" class="com.sanqing.action.ShowAllArticle" scope="prototype">
+	<bean id="showAllArticle" class="com.pt.action.ShowAllArticle" scope="prototype">
 		<property name="articleService">
 			<ref bean="articleService"/>
 		</property>
 	</bean>
 	
 	<!-- 配置dianjiliangDAO -->
-	<bean id="dianjiliangDAO" class="com.sanqing.dao.DianjiliangDAOImpl">
+	<bean id="dianjiliangDAO" class="com.pt.dao.DianjiliangDAOImpl">
 		<property name="hibernateTemplate">
 			<ref bean="hibernateTemplate"/>
 		</property>
 	</bean>
 	
 	<!-- 配置dianjiliangService -->
-	<bean id="dianjiliangService" class="com.sanqing.service.DianjiliangServiceImpl">
+	<bean id="dianjiliangService" class="com.pt.service.DianjiliangServiceImpl">
 		<property name="dianjiliangDAO">
 			<ref bean="dianjiliangDAO"/>
 		</property>
@@ -162,28 +162,28 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 	
 	
 	<!-- 配置critiqueDAO -->
-	<bean id="critiqueDAO" class="com.sanqing.dao.CritiqueDAOImpl">
+	<bean id="critiqueDAO" class="com.pt.dao.CritiqueDAOImpl">
 		<property name="hibernateTemplate">
 			<ref bean="hibernateTemplate"/>
 		</property>
 	</bean>
 	
 	<!-- 配置critiqueService -->
-	<bean id="critiqueService" class="com.sanqing.service.CritiqueServiceImpl">
+	<bean id="critiqueService" class="com.pt.service.CritiqueServiceImpl">
 		<property name="critiqueDAO">
 			<ref bean="critiqueDAO"/>
 		</property>
 	</bean>
 	
 	<!-- AddCritique Action -->
-	<bean id="addCritique" class="com.sanqing.action.AddCritique" scope="prototype">
+	<bean id="addCritique" class="com.pt.action.AddCritique" scope="prototype">
 		<property name="critiqueService">
 			<ref bean="critiqueService"/>
 		</property>
 	</bean>
 	
 	<!-- ShowArticle Action -->
-	<bean id="showArticle" class="com.sanqing.action.ShowArticle" scope="prototype">
+	<bean id="showArticle" class="com.pt.action.ShowArticle" scope="prototype">
 		<property name="articleService">
 			<ref bean="articleService"/>
 		</property>
@@ -199,7 +199,7 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 	</bean>
 	
 	<!-- ShowRss Action -->
-	<bean id="showRSS" class="com.sanqing.action.ShowRSS" scope="prototype">
+	<bean id="showRSS" class="com.pt.action.ShowRSS" scope="prototype">
 		<property name="articleService">
 			<ref bean="articleService"/>
 		</property>

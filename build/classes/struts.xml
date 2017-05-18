@@ -9,7 +9,7 @@
 	<constant name="struts.custom.i18n.resources" value="myMessage"></constant>
 	<package name="struts2" extends="struts-default">
 		<interceptors>
-			<interceptor name="userInterceptor" class="com.sanqing.interceptor.UserInterceptor"></interceptor>
+			<interceptor name="userInterceptor" class="com.pt.interceptor.UserInterceptor"></interceptor>
 		</interceptors>
 		
 		<action name="register" class="registerAction">
@@ -59,7 +59,7 @@
 			<result name="success" type="chain">showArticle</result>
 		</action>
 		
-		<action name="photoUpload" class="com.sanqing.action.PhotoUpload">
+		<action name="photoUpload" class="com.pt.action.PhotoUpload">
 			<result name="success" type="chain">showPhoto</result>
 			<result name="input">/user/showphoto.jsp</result>
 			<!-- 配置fileUpload拦截器 -->
@@ -74,7 +74,7 @@
 			<interceptor-ref name="defaultStack"></interceptor-ref>
 		</action>
 		
-		<action name="showPhoto" class="com.sanqing.action.ShowPhoto">
+		<action name="showPhoto" class="com.pt.action.ShowPhoto">
 			<result name="success">/user/showphoto.jsp</result>
 		</action>
 		
